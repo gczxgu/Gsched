@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+import "common.proto";
+service SchedulerToWorker {
+    rpc RunClass (RunClassRequest) returns (Empty) {}
+    
+}
+
+message JobsIds {
+    repeated uint32 ids = 1;
+}
+
+message Ips {
+    repeated string ips = 1;
+}
+
+message Clusters{
+    string type = 1;
+    int64 indexs = 2;
+    uint32 nums = 3;
+}
+
+message RunClassRequest {
+    string policy = 1;
+    repeated JobsIds workerids = 2;
+    repeated JobsIds jobids = 3;
+    repeated Ips ips = 4;
+    repeated JobsIds ports = 5;
+    repeated JobDescription describes = 6;
+    repeated Clusters clusterinfos = 7;
+    string classip = 8;
+    uint32 classport = 9;
+}
+
+

@@ -1,0 +1,15 @@
+syntax = "proto3";
+import "common.proto";
+
+service WorkerToClass{
+    rpc Done (DoneRequest) returns (Empty);
+}
+
+message DoneRequest {
+    uint64 worker_id = 1;
+    repeated uint64 job_id = 2;
+    repeated uint64 num_steps = 3;
+    repeated double execution_time = 4;
+    repeated string iterator_log = 5;
+}
+

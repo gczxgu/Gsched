@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "common.proto";
+
+service ClassToWorker{
+    rpc RunJob (RunJobRequest) returns (Empty) {}
+    // Ends a job on worker.
+    rpc KillJob (KillJobRequest) returns (Empty) {}
+    // Resets the worker.
+    rpc Reset (Empty) returns (Empty) {}
+    // Shuts down the worker.
+    rpc Shutdown (Empty) returns (Empty) {}
+}
+message RunJobRequest {
+    repeated JobDescription job_descriptions = 1;
+    uint64 worker_id = 2;
+    uint64 round_id = 3;
+}
+
+message KillJobRequest {
+    uint64 job_id = 1;
+}
