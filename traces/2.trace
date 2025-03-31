@@ -1,0 +1,1 @@
+ResNet-18 (batch size 32)	python3 main.py --data_dir=%s/cifar10 --batch_size 32	image_classification/cifar10	--num_steps	1	4000	1	static	1	-1.000000	3338	0
